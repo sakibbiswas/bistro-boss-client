@@ -10,14 +10,14 @@ const Navbar = () => {
 
         {/* {user?.email ? */}
         <>
-            <li><Link to='bookings'>My bookings</Link></li>
+            <li><Link to='shop'>Our Shop</Link></li>
             <li> <button >Logout</button></li>
         </> :
         <li><Link to='login'>Login</Link></li>
         {/* } */}
     </>
     return (
-        <div className="navbar fixed z-10 bg-opacity-30 bg-black text-white max-w-screen-xl  h-28 mb-5">
+        <div className="navbar fixed z-10 bg-opacity-60 bg-black text-white max-w-screen-xl   mb-5">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

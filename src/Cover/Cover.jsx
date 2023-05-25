@@ -10,9 +10,9 @@ const Cover = ({ img, title, text }) => {
         >
             <div className="hero h-[500px] " >
                 <div className="hero-overlay bg-opacity-30"></div>
-                <div className="hero-content hero-overlay bg-opacity-60  w-[1000px] h-[300px] text-center text-neutral-content">
+                <div className="hero-content hero-overlay  bg-opacity-40 bg-black w-[1000px] h-[300px] text-center text-neutral-content">
                     <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold">{title}</h1>
+                        <h1 className="mb-5 text-5xl capitalize font-serif">{title}</h1>
                         <p className="mb-5">{text}</p>
 
                     </div>
