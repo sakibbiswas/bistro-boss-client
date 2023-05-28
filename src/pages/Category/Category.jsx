@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide, } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 // import required modules
-import { Pagination } from "swiper";
+import { Autoplay, Pagination } from "swiper";
 import slider1 from '../../assets/home/slide1.jpg'
 import slider2 from '../../assets/home/slide2.jpg'
 import slider3 from '../../assets/home/slide3.jpg'
@@ -21,14 +21,16 @@ const Category = () => {
                 heading={'ORDER ONLINE'}
             ></SectionTitle>
             <Swiper
-
+                autoplay={
+                    { delay: 3000 }
+                }
                 slidesPerView={4}
                 spaceBetween={30}
                 centeredSlides={true}
                 pagination={{
                     clickable: true,
                 }}
-                modules={[Pagination,]}
+                modules={[Pagination, Autoplay]}
                 className="mySwiper"
             >
                 <SwiperSlide>

@@ -6,16 +6,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Navigation } from "swiper";
-
+import { Navigation, Autoplay } from "swiper";
 import { Rating } from '@smastrom/react-rating'
-
 import '@smastrom/react-rating/style.css'
+import { FaQuoteLeft } from 'react-icons/fa';
 const Testimonial = () => {
     const [reviews, setReviews] = useState([])
     const [rating, setRating] = useState(3);
     useEffect(() => {
-        fetch('review.json')
+        fetch('http://localhost:4000/reviews')
             .then(res => res.json())
             .then(data => {
 
@@ -30,9 +29,11 @@ const Testimonial = () => {
             ></SectionTitle>
             <Swiper
 
-
+                autoplay={
+                    { delay: 5000 }
+                }
                 navigation={true}
-                modules={[Navigation]}
+                modules={[Navigation, Autoplay]}
                 className="mySwiper"
             >
                 {/* <SwiperSlide>Slide 1</SwiperSlide> */}
@@ -48,6 +49,11 @@ const Testimonial = () => {
 
                                     readOnly
                                 />
+
+
+                                <FaQuoteLeft className='w-[100px] h-[100px] mt-5'></FaQuoteLeft>
+
+
 
                                 <p className='py-8'>{review.details}</p>
                                 <h2 className="text-2xl text-orange-500">{review.name}</h2>

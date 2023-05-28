@@ -1,20 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Authcontext } from '../../Components/Providers/Authprovider';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(Authcontext)
+    const handelLogout = () => {
+        logOut()
+            .then(() => {
+
+
+
+            })
+            .catch(error => console.log(error))
+    }
     const navLi = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='contact'>CONTACT us</Link></li>
         <li><Link to='dashboard'>DASHBOARD</Link></li>
         <li><Link to='menu'>Our menu</Link></li>
 
-        {/* {user?.email ? */}
-        <>
-            <li><Link to='shop'>Our Shop</Link></li>
-            <li> <button >Logout</button></li>
-        </> :
-        <li><Link to='login'>Login</Link></li>
-        {/* } */}
+        {user?.email ?
+            <>
+                <li><Link to='/shop/salad'>Our Shop</Link></li>
+                <li><button onClick={handelLogout}>Logout</button></li>
+            </> :
+            <li><Link to='login'>Login</Link></li>
+
+        }
+
     </>
     return (
         <div className="navbar fixed z-10 bg-opacity-60 bg-black text-white max-w-screen-xl   mb-5">
@@ -23,7 +36,7 @@ const Navbar = () => {
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-black rounded-box w-52">
 
                         {navLi}
 

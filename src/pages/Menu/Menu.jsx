@@ -9,12 +9,15 @@ import Cover from '../../Cover/Cover';
 import Usemenu from '../../hooks/Usemenu';
 import SectionTitle from '../../Components/SectionTitle/SectionTitle';
 import MenuCategory from '../MenuCategory/MenuCategory';
+import { useParams } from 'react-router-dom';
 
 const Menu = () => {
-    const [menu] = Usemenu()
+    const [menu] = Usemenu();
+
+
     const dessert = menu.filter(item => item.category === 'dessert')
     const soup = menu.filter(item => item.category === 'soup')
-    const salad = menu.filter(item => item.category === ' salad')
+    const salad = menu.filter(item => item.category === 'salad')
     const pizza = menu.filter(item => item.category === 'pizza')
     const offered = menu.filter(item => item.category === 'offered')
     return (
@@ -27,7 +30,7 @@ const Menu = () => {
                 heading='TODAYS OFFER'></SectionTitle>
             <MenuCategory items={offered}></MenuCategory>
             <MenuCategory
-                title="Dessert"
+                title="dessert"
                 items={dessert}
                 img={menuImg1}
                 text="'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'"
