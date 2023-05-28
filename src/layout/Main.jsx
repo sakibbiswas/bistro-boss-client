@@ -5,13 +5,13 @@ import Navbar from '../pages/Navbar/Navbar';
 
 const Main = () => {
     const location = useLocation()
-    const noHeaderFooter = location.pathname.includes('login')
-    const NoHeaderFooter = location.pathname.includes('signup')
+    const noHeaderFooter = location.pathname.includes('login') || location.pathname.includes('signup')
+
     return (
         <div>
-            {noHeaderFooter || NoHeaderFooter || <Navbar></Navbar>}
+            {noHeaderFooter || <Navbar></Navbar>}
             <Outlet></Outlet>
-            {noHeaderFooter || NoHeaderFooter || <Footer></Footer>}
+            {noHeaderFooter || <Footer></Footer>}
         </div>
     );
 };

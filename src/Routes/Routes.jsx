@@ -6,6 +6,7 @@ import Menu from "../pages/Menu/Menu.jsx";
 import Shop from "../pages/order/shop.jsx";
 import Login from "../Components/Login/Login.jsx";
 import Signup from "../Components/signup/Signup.jsx";
+import Privaterout from "../Components/privateroute/Privaterout.jsx";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -24,11 +25,11 @@ export const router = createBrowserRouter([
                 element: <Shop></Shop>
             },
             {
-                path: 'login',
+                path: '/login',
                 element: <Login></Login>
             },
             {
-                path: 'signup',
+                path: '/signup',
                 element: <Signup></Signup>
             },
         ]
