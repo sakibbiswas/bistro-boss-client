@@ -1,24 +1,35 @@
 import React, { useContext } from 'react';
 import { Authcontext } from '../../Components/Providers/Authprovider';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import UseCart from '../../hooks/UseCart';
 
 const Foodcard = ({ item }) => {
-    const { name, price, recipe, image } = item;
+    const { name, price, recipe, image, _id } = item;
     const { user } = useContext(Authcontext)
     const navigate = useNavigate();
+    const location = useLocation()
+    const [cart, refetch] = UseCart()  //cart to update the number of items in the cart
     const handelAddToCart = item => {
         // console.log(item);
-        if (user) {
-            fetch('http://localhost:4000/carts')
+        if (user && user.email) {
+            const cartItem = { menuItemId: _id, name, price, recipe, image, email: user.email }
+            fetch('http://localhost:4000/carts', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(cartItem),
+            })
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data);
                     if (data.insertedId) {
+                        refetch()
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
-                            title: 'Your work has been saved',
+                            title: 'food added on the cart',
                             showConfirmButton: false,
                             timer: 1500
                         })
@@ -37,7 +48,7 @@ const Foodcard = ({ item }) => {
                 confirmButtonText: 'Login now!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    navigate('/login')
+                    navigate('/login', { state: { from: location } })
                 }
             })
         }

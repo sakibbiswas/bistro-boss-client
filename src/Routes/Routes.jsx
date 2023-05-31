@@ -7,6 +7,8 @@ import Shop from "../pages/order/shop.jsx";
 import Login from "../Components/Login/Login.jsx";
 import Signup from "../Components/signup/Signup.jsx";
 import Privaterout from "../Components/privateroute/Privaterout.jsx";
+import Deshbord from "../layout/Deshbord.jsx";
+import MyCart from "../pages/Deshbord/MyCart.jsx";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -34,4 +36,14 @@ export const router = createBrowserRouter([
             },
         ]
     },
+    {
+        path: 'deshbord',
+        element: <Deshbord></Deshbord>,
+        children: [
+            {
+                path: 'cart',
+                element: <MyCart></MyCart>
+            }
+        ]
+    }
 ]);

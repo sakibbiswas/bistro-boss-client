@@ -109,8 +109,8 @@ const Login = () => {
 
                                 </div>
                                 <div className="form-control mt-4">
-
-                                    <input disabled={disabled} className="btn btn-primary" type="submit" value="login" />
+                                    {/* todo make button disabled=disabled */}
+                                    <input disabled={false} className="btn btn-primary" type="submit" value="login" />
                                 </div>
                             </form>
                             <p className='my-4 text-center'>New to bistro boss <Link className='text-orange-500 font-bold' to='/signup'>Sign Up</Link></p>
