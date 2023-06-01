@@ -3,7 +3,7 @@ import login from '../../assets/others/authentication1.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Sociallogin from '../sociallogin/Sociallogin';
 import { Authcontext } from '../Providers/Authprovider';
-import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import Swal from 'sweetalert2'
 import { Helmet } from 'react-helmet-async';
 const Login = () => {
@@ -47,7 +47,7 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
 
                 Navigate(from, { replace: true })
                 Swal.fire({
@@ -109,8 +109,8 @@ const Login = () => {
 
                                 </div>
                                 <div className="form-control mt-4">
-                                    {/* todo make button disabled=disabled */}
-                                    <input disabled={false} className="btn btn-primary" type="submit" value="login" />
+
+                                    <input disabled={disabled} className="btn btn-primary" type="submit" value="login" />
                                 </div>
                             </form>
                             <p className='my-4 text-center'>New to bistro boss <Link className='text-orange-500 font-bold' to='/signup'>Sign Up</Link></p>

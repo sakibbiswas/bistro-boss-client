@@ -9,6 +9,7 @@ import Signup from "../Components/signup/Signup.jsx";
 import Privaterout from "../Components/privateroute/Privaterout.jsx";
 import Deshbord from "../layout/Deshbord.jsx";
 import MyCart from "../pages/Deshbord/MyCart.jsx";
+import ALLusers from "../pages/ALLusers/ALLusers.jsx";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -38,12 +39,16 @@ export const router = createBrowserRouter([
     },
     {
         path: 'deshbord',
-        element: <Deshbord></Deshbord>,
+        element: <Privaterout><Deshbord></Deshbord></Privaterout>,
         children: [
             {
                 path: 'cart',
                 element: <MyCart></MyCart>
-            }
+            },
+            {
+                path: 'allusers',
+                element: <ALLusers></ALLusers>
+            },
         ]
     }
 ]);

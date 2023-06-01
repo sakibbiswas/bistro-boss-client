@@ -13,7 +13,7 @@ const Signup = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createuser, update } = useContext(Authcontext)
     const onSubmit = data => {
-        console.log(data);
+
         createuser(data.email, data.password)
             .then(result => {
                 const loggeduser = result.user;
@@ -23,16 +23,34 @@ const Signup = () => {
                 // loggeduser.photoURL = data.photo;
 
                 update(data.name, data.photo)
-                    .then(console.log('profile updated'))
-                reset()
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'User created successfully',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                navigate('/')
+                    .then(() => {
+                        const saveUser = { name: data.name, email: data.email }
+                        fetch('http://localhost:4000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data);
+                                if (data.insertedId) {
+                                    reset()
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'User created successfully',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                    navigate('/')
+                                }
+                            })
+
+
+                    })
+
             })
             .catch(error => {
                 console.log(error);
