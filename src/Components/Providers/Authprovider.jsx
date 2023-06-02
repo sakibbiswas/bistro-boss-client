@@ -25,6 +25,7 @@ const Authprovider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            setuser(currentUser)
             console.log('current user', currentUser);
             // get and set token 
             if (currentUser && currentUser.email) {
@@ -33,6 +34,7 @@ const Authprovider = ({ children }) => {
                         // console.log('jwt response', data.data.token)
                         console.log(data);
                         localStorage.setItem('access-token', data.data.token)
+                        setloading(false)
                     })
             }
             else {
@@ -40,8 +42,8 @@ const Authprovider = ({ children }) => {
             }
 
 
-            setuser(currentUser)
-            setloading(false)
+
+
         })
         return () => {
 

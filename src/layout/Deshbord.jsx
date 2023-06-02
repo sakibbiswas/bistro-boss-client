@@ -2,9 +2,11 @@ import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { FaHome, FaShoppingCart, FaWallet, FaCalendarAlt, FaUtensils, FaUser, FaBook, FaUsers } from 'react-icons/fa';
 import UseCart from '../hooks/UseCart';
+import UseAdmin from '../hooks/Useadmin';
 const Deshbord = () => {
     // Todo-----
-    const isAdmin = true;
+    // const isAdmin = true;
+    const [isAdmin] = UseAdmin();
     const [cart] = UseCart()
     return (
         <div className="drawer drawer-mobile  ">
@@ -20,7 +22,7 @@ const Deshbord = () => {
                     {
                         isAdmin ? <>
                             <li>< NavLink to='/deshbord/home'><FaHome></FaHome>AdMin  Home</ NavLink></li>
-                            <li>< NavLink to='/deshbord/reservation'><FaUtensils></FaUtensils>Add Items</ NavLink></li>
+                            <li>< NavLink to='/deshbord/addItems'><FaUtensils></FaUtensils>Add Items</ NavLink></li>
                             <li>< NavLink to='/deshbord/history'><FaWallet></FaWallet>Manage Items</ NavLink></li>
 
                             <li>< NavLink to='/deshbord/history'><FaBook></FaBook>Manage Bookings</ NavLink></li>
