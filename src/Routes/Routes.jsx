@@ -12,6 +12,8 @@ import MyCart from "../pages/Deshbord/MyCart.jsx";
 import ALLusers from "../pages/ALLusers/ALLusers.jsx";
 import AddItems from "../pages/additems/AddItems.jsx";
 import AdminRoute from "../Components/privateroute/Aminroute/AdminRoute.jsx";
+import ManageItems from "../pages/manageItems/manageItems.jsx";
+import Payment from "../pages/Deshbord/payment/Payment.jsx";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -47,14 +49,23 @@ export const router = createBrowserRouter([
                 path: 'cart',
                 element: <MyCart></MyCart>
             },
+            // admin routes
             {
                 path: 'allusers',
-                element: <ALLusers></ALLusers>
+                element: <AdminRoute><ALLusers></ALLusers></AdminRoute>
             },
             {
                 path: 'addItems',
                 element: <AdminRoute><AddItems></AddItems></AdminRoute>
             },
+            {
+                path: 'manageItems',
+                element: <AdminRoute><ManageItems></ManageItems></AdminRoute>
+            },
+            {
+                path: 'payment',
+                element: <Payment></Payment>
+            }
         ]
     }
 ]);

@@ -11,9 +11,9 @@ const Deshbord = () => {
     return (
         <div className="drawer drawer-mobile  ">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content flex flex-col items-center justify-center">
-                <Outlet></Outlet>
+            <div className="drawer-content flex ">
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                <Outlet></Outlet>
 
             </div>
             <div className="drawer-side bg-[#D1A054] ">
@@ -23,7 +23,7 @@ const Deshbord = () => {
                         isAdmin ? <>
                             <li>< NavLink to='/deshbord/home'><FaHome></FaHome>AdMin  Home</ NavLink></li>
                             <li>< NavLink to='/deshbord/addItems'><FaUtensils></FaUtensils>Add Items</ NavLink></li>
-                            <li>< NavLink to='/deshbord/history'><FaWallet></FaWallet>Manage Items</ NavLink></li>
+                            <li>< NavLink to='/deshbord/manageItems'><FaWallet></FaWallet>Manage Items</ NavLink></li>
 
                             <li>< NavLink to='/deshbord/history'><FaBook></FaBook>Manage Bookings</ NavLink></li>
                             <li>< NavLink to='/deshbord/allusers'><FaUsers></FaUsers> ALL Users</ NavLink></li>
