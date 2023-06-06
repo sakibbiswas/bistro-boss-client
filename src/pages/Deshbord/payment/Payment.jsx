@@ -11,12 +11,12 @@ const Payment = () => {
     const total = cart.reduce((sum, item) => item.price + sum, 0)
     const price = parseFloat(total.toFixed(2))
     return (
-        <div className='w-full'>
+        <div className='w-full bg-slate-300'>
             <SectionTitle subheading="Please proceed to payment" heading='Payment'></SectionTitle>
 
 
             <Elements stripe={stripePromise}>
-                <CheckoutForm price={price}></CheckoutForm>
+                <CheckoutForm cart={cart} price={price}></CheckoutForm>
             </Elements>
         </div>
     );

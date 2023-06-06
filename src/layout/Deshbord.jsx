@@ -21,7 +21,7 @@ const Deshbord = () => {
                 <ul className="menu p-4 w-80  text-base-content">
                     {
                         isAdmin ? <>
-                            <li>< NavLink to='/deshbord/home'><FaHome></FaHome>AdMin  Home</ NavLink></li>
+                            <li>< NavLink to='/deshbord/adminhome'><FaHome></FaHome>AdMin  Home</ NavLink></li>
                             <li>< NavLink to='/deshbord/addItems'><FaUtensils></FaUtensils>Add Items</ NavLink></li>
                             <li>< NavLink to='/deshbord/manageItems'><FaWallet></FaWallet>Manage Items</ NavLink></li>
 

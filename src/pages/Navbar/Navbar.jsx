@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { Authcontext } from '../../Components/Providers/Authprovider';
 import { FaShoppingCart } from 'react-icons/fa';
 import UseCart from '../../hooks/UseCart';
+import UseAdmin from '../../hooks/Useadmin';
 const Navbar = () => {
     const [cart] = UseCart()
+    const [isAdmin] = UseAdmin();
     const { user, logOut } = useContext(Authcontext)
     const handelLogout = () => {
         logOut()
@@ -19,6 +21,7 @@ const Navbar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/menu'>Our menu</Link></li>
         <li><Link to='/shop/salad'>Our Shop</Link></li>
+        <li><Link to={isAdmin ? 'deshbord/adminhome' : 'deshbord/userhome'}>Dashboard</Link></li>
         <li><Link to='/deshbord/cart'>
             <div className="mr-5">
                 <button className="btn gap-2">
@@ -36,7 +39,7 @@ const Navbar = () => {
                         <img title={user.displayName} src={user.photoURL} />
                     </div>
                 </div>
-                <li><button onClick={handelLogout}>Logout</button></li>
+                <li><button className='btn  ml-5 mt-5' onClick={handelLogout}>Logout</button></li>
             </> :
             <li><Link to='/login'>Login</Link></li>
 
