@@ -8,4 +8,4 @@ const UserHome = () => {
     );
 };
 
-export default UserHome; <h3>user home</h3>
+export default UserHome; 

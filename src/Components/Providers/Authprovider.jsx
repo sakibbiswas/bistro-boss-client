@@ -29,7 +29,7 @@ const Authprovider = ({ children }) => {
             console.log('current user', currentUser);
             // get and set token 
             if (currentUser && currentUser.email) {
-                axios.post('http://localhost:4000/jwt', { email: currentUser.email })
+                axios.post('https://bistro-boss-server-sakibbiswas.vercel.app/jwt', { email: currentUser.email })
                     .then(data => {
                         // console.log('jwt response', data.data.token)
                         console.log(data);

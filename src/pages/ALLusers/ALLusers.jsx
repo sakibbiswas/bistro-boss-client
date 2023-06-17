@@ -27,7 +27,7 @@ const ALLusers = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:4000/users/${user._id}`, {
+                fetch(`https://bistro-boss-server-sakibbiswas.vercel.app/users/${user._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -45,7 +45,7 @@ const ALLusers = () => {
         })
     }
     const handelMakeAdmin = user => {
-        fetch(`http://localhost:4000/users/admin/${user._id}`, {
+        fetch(`https://bistro-boss-server-sakibbiswas.vercel.app/users/admin/${user._id}`, {
             method: 'PATCH'
         })
 
